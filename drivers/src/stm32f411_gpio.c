@@ -103,11 +103,11 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 ********************************************************/
 void GPIO_DeInit(GPIO_RegDef_t *pGPIOx){
 	if(pGPIOx == GPIOA){GPIOA_REG_RESET();}
-	else if(pGPIOx == GPIOB){GPIOB_REG_RESET;}
-	else if(pGPIOx == GPIOC){GPIOC_REG_RESET;}
-	else if(pGPIOx == GPIOD){GPIOD_REG_RESET;}
-	else if(pGPIOx == GPIOE){GPIOE_REG_RESET;}
-	else if(pGPIOx == GPIOH){GPIOH_REG_RESET;}
+	else if(pGPIOx == GPIOB){GPIOB_REG_RESET();}
+	else if(pGPIOx == GPIOC){GPIOC_REG_RESET();}
+	else if(pGPIOx == GPIOD){GPIOD_REG_RESET();}
+	else if(pGPIOx == GPIOE){GPIOE_REG_RESET();}
+	else if(pGPIOx == GPIOH){GPIOH_REG_RESET();}
 }
 
 /********************************************************
@@ -122,7 +122,7 @@ void GPIO_DeInit(GPIO_RegDef_t *pGPIOx){
 
 * @Note              - Read the corresponding bit position in the input data register
 ********************************************************/
-uint8_t GPIO_ReadFromInputPin(GPIO_RefDef_t *pGPIOx, uint8_t PinNumber){
+uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber){
 	uint8_t value;
 	value = (uint8_t)(pGPIOx->IDR >> (PinNumber) & 0x00000001);
 	return value;
@@ -178,7 +178,7 @@ void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t Val
 
 * @Note              - writes a value to the output data register
 ********************************************************/
-void GPIO_WriteToOutputPort(GPIO_RefDef_t *pGPIOx, uint16_t Value){
+void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t Value){
 	pGPIOx->ODR |= Value;
 }
 
@@ -194,7 +194,7 @@ void GPIO_WriteToOutputPort(GPIO_RefDef_t *pGPIOx, uint16_t Value){
 
 * @Note              -
 ********************************************************/
-void GPIO_ToggleOutputPin(GPIO_RefDef_t *pGPIOx, uint8_t PinNumber){
+void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber){
 	pGPIOx->ODR ^= (1 << PinNumber);
 }
 
