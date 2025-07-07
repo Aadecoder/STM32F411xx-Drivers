@@ -1,0 +1,5 @@
+"./Src/main.o"
+"./Src/syscalls.o"
+"./Src/sysmem.o"
+"./Startup/startup_stm32f411ceux.o"
+"./drivers/Src/stm32f411_gpio.o"
