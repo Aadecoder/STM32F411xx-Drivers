@@ -21,10 +21,13 @@ This repository provides low-level, polling-based peripheral drivers for the STM
 ```bash
 STM32F411CEU6_Drivers/
 ├── .settings/                     ← IDE configuration files
+├── .Debug/                         
 ├── drivers/                       ← Custom peripheral drivers
 │   ├── Inc/                       ← Driver headers
 │   │    └── stm32f411.h           ← MCU specific header file
-│   └── src/
+│   │    └── stm32f411_gpio.h      ← GPIO header file
+│   └── Src/
+│        └── stm32f411_gpio.c      ← GPIO API Implementation source file
 ├── Inc/                           ← Application-level headers
 ├── Src/                           ← Application source code
 ├── Startup/                       ← Startup assembly and system files
