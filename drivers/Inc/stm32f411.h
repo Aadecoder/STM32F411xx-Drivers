@@ -150,6 +150,27 @@ typedef struct{
 }SYSCFG_RegDef_t;
 #define SYSCFG                  ((SYSCFG_RegDef_t*)SYSCFG_BASE)
 
+// SPI Peripheral Register Structure
+typedef struct{
+		__vo uint32_t CR1;			// Address Offset: 0x00
+		__vo uint32_t CR2;			// Address Offset: 0x04
+		__vo uint32_t SR;			// Address Offset: 0x08
+		__vo uint32_t DR;			// Address Offset: 0x0C
+		__vo uint32_t CRCPR; 		// Address Offset: 0x10
+		__vo uint32_t RXCRCPR; 		// Address Offset: 0x14
+		__vo uint32_t TXCRCPR; 		// Address Offset: 0x18
+		__vo uint32_t I2SCFGR; 		// Address Offset: 0x1C
+		__vo uint32_t I2SPR;		// Address Offset: 0x20
+}SPI_RegDef_t;
+
+// Peripheral Definitions
+#define SPI1				((SPI_RegDef_t*)SPI1_BASE)
+#define SPI2				((SPI_RegDef_t*)SPI2_BASE)
+#define SPI3				((SPI_RegDef_t*)SPI3_BASE)
+#define SPI4				((SPI_RegDef_t*)SPI4_BASE)
+#define SPI5				((SPI_RegDef_t*)SPI5_BASE)
+
+
 /*  Clock Enable Macros for GPIOx Peripherals */
 #define GPIOA_PCLK_EN()     (RCC->AHB1ENR |= (1 << 0))
 #define GPIOB_PCLK_EN()     (RCC->AHB1ENR |= (1 << 1))
@@ -220,7 +241,7 @@ typedef struct{
                                        (x == GPIOC)?2:\
                                        (x == GPIOD)?3:\
                                        (x == GPIOE)?4:\
-                                       (x == GPIOI)?7:0 )
+                                       (x == GPIOH)?7:0 )
 
 // IRQ(Interrupt Request) Numbers of STM32F407x MCU
 #define IRQ_NO_EXTI0             6
@@ -245,5 +266,72 @@ typedef struct{
 #define RESET				DISABLE
 #define GPIO_PIN_SET		SET
 #define GPIO_PIN_RESET		RESET
+
+// Bit Definition Macros for SPI
+
+// Bit Definition Position Macros for SPI_CR1
+#define SPI_CR1_CPHA        0
+#define SPI_CR1_CPOL        1
+#define SPI_CR1_MSTR        2
+#define SPI_CR1_BR          3
+#define SPI_CR1_SPE         4
+#define SPI_CR1_LSBFIRST    5
+#define SPI_CR1_SSI         6
+#define SPI_CR1_SSM         7
+#define SPI_CR1_RXONLY      8
+#define SPI_CR1_DFF         9
+#define SPI_CR1_CRCNEXT     10
+#define SPI_CR1_CRCEN       11
+#define SPI_CR1_BIDIOE      12
+#define SPI_CR1_BIDIMODE    13
+
+// BIT Position Definitions of SPI_CR2 Peripheral
+#define SPI_CR2_RXDMAEN     0
+#define SPI_CR2_TXDMAEN     1
+#define SPI_CR2_SSOE        2
+#define SPI_CR2_FRF         4
+#define SPI_CR2_ERRIE       5
+#define SPI_CR2_RXNEIE      6
+#define SPI_CR2_TXEIE       7
+
+// BIT Position Definitions of SPI_SR Peripheral
+#define SPI_SR_RXNE        0
+#define SPI_SR_TXE         1
+#define SPI_SR_CHSIDE      2
+#define SPI_SR_UDR         3
+#define SPI_SR_CRCERR      4
+#define SPI_SR_MODF        5
+#define SPI_SR_OVR         6
+#define SPI_SR_BSY         7
+#define SPI_SR_FRE         8
+
+// SPI De-Initialize Macros
+// and in order to reset we need to first set it to 1 then again set it to 0
+#define SPI1_REG_RESET()       do{(RCC->APB2RSTR |= (1<<12)); (RCC->APB2RSTR &= ~(1<<12));}while(0)
+#define SPI2_REG_RESET()       do{(RCC->APB1RSTR |= (1<<14)); (RCC->APB1RSTR &= ~(1<<14));}while(0)
+#define SPI3_REG_RESET()       do{(RCC->APB1RSTR |= (1<<15)); (RCC->APB1RSTR &= ~(1<<15));}while(0)
+#define SPI4_REG_RESET()       do{(RCC->APB2RSTR |= (1<<13)); (RCC->APB2RSTR &= ~(1<<13));}while(0)
+#define SPI5_REG_RESET()       do{(RCC->APB2RSTR |= (1<<20)); (RCC->APB2RSTR &= ~(1<<20));}while(0)
+
+// SPI Status Flag Definitions
+#define FLAG_SET			SET
+#define FLAG_RESET			RESET
+
+#define SPI_TXE_FLAG		(1 << SPI_SR_TXE)
+#define SPI_RXNE_FLAG		(1 << SPI_SR_RXNE)
+#define SPI_BUSY_FLAG		(1 << SPI_SR_BSY)
+#define SPI_OVR_FLAG		(1 << SPI_SR_OVR)
+
+
+
+
+
+
+
+
+
+
+#include "stm32f411_gpio.h"
+#include "stm32f411_spi.h"
 
 #endif /* STM32F411_H_ */

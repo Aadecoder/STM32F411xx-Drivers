@@ -66,22 +66,22 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 			// 1. Configure the FTSR
 			EXTI->FTSR |= (1 << pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber);
 			//Clearing the corresponding RTSR bit
-			EXTI->RTSR &= ~(1 << pGPIOHandle->GPIO_PinConfig.PinNumber);
+			EXTI->RTSR &= ~(1 << pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber);
 
-		}else if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_IT_RT){
+		}else if(pGPIOHandle->GPIO_PinConfig->GPIO_PinMode == GPIO_MODE_IT_RT){
 			//1. Configure the RTSR
-			EXTI->RTSR |= (1 << pGPIOHandle->GPIO_PinConfig.PinNumber);
+			EXTI->RTSR |= (1 << pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber);
 			//Clearing the corresponding FTSR bit
-			EXTI->FTSR &= ~(1 << pGPIOHandle->GPIO_PinConfig.PinNumber);
+			EXTI->FTSR &= ~(1 << pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber);
 
-		}else if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_IT_RFT){
+		}else if(pGPIOHandle->GPIO_PinConfig->GPIO_PinMode == GPIO_MODE_IT_RFT){
 			//1. Configure both FTSR and RTSR
-			EXTI->FTSR |= (1 << pGPIOHandle->GPIO_PinConfig.PinNumber);
-			EXTI->RTSR |= (1 << pGPIOHandle->GPIO_PinConfig.PinNumber);
+			EXTI->FTSR |= (1 << pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber);
+			EXTI->RTSR |= (1 << pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber);
 		}
 		// 2. Configure the GPIO Port Selection
-		uint8_t temp1 = pGPIOHandle->GPIO_PinConfig.PinNumber / 4;
-		uint8_t temp2 = pGPIOHandle->GPIO_PinConfig.PinNumber % 4;
+		uint8_t temp1 = pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber / 4;
+		uint8_t temp2 = pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber % 4;
 		uint8_t portcode = GPIO_BASEADDR_TO_CODE(pGPIOHandle->pGPIOx);
 		SYSCFG_PCLK_EN();
 		SYSCFG->EXTICR[temp1] |= (portcode << (4 * temp2));
@@ -240,7 +240,7 @@ void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber){
 @Note                - Anything done here is processor specific
 *********************************************/
 void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi){
-	if(EnorDI == ENABLE){
+	if(EnorDi == ENABLE){
 			if(IRQNumber <= 31){
 					// Program ISER0 Register
 					*NVIC_ISER0 |= ( 1 << IRQNumber);
@@ -305,15 +305,6 @@ void GPIO_IRQHandling(uint8_t PinNumber){
 		EXTI->PR |= (1 << PinNumber);
 	}
 }
-
-
-
-
-
-
-
-
-
 
 
 

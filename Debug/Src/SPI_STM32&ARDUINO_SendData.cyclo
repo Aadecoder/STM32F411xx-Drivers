@@ -1,0 +1,5 @@
+../Src/SPI_STM32&ARDUINO_SendData.c:4:6:delay	2
+../Src/SPI_STM32&ARDUINO_SendData.c:8:6:GPIO_ButtonInit	1
+../Src/SPI_STM32&ARDUINO_SendData.c:19:6:SPI2_GPIOInits	1
+../Src/SPI_STM32&ARDUINO_SendData.c:44:6:SPI2_Inits	1
+../Src/SPI_STM32&ARDUINO_SendData.c:57:5:main	3
