@@ -13,6 +13,7 @@ This repository provides low-level, polling-based peripheral drivers for the STM
 ## ⚙️ Peripherals
 
 - ✅ GPIO
+- ✅ SPI
 
 ---
 
@@ -26,8 +27,10 @@ STM32F411CEU6_Drivers/
 │   ├── Inc/                       ← Driver headers
 │   │    └── stm32f411.h           ← MCU specific header file
 │   │    └── stm32f411_gpio.h      ← GPIO header file
+│   │    └── stm32f411_spi.h       ← SPI header file
 │   └── Src/
 │        └── stm32f411_gpio.c      ← GPIO API Implementation source file
+│        └── stm32f411_spi.c      ← SPI API Implementation source file
 ├── Inc/                           ← Application-level headers
 ├── Src/                           ← Application source code
 ├── Startup/                       ← Startup assembly and system files
