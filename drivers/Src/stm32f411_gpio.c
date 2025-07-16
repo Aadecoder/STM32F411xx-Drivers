@@ -256,15 +256,15 @@ void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi){
 	}else{
 			if(IRQNumber <= 31){
 					// Program ICER0 Register
-					*NVIC_ICER0 |= ( 1 << IRQNumber);
+					*NVIC_ICER0 &= ~( 1 << IRQNumber);
 
 			}else if(IRQNumber > 31 && IRQNumber < 64){
 					// Program ICER1 Register
-					*NVIC_ICER1 |= ( 1 << (IRQNumber % 32));
+					*NVIC_ICER1 &= ~( 1 << (IRQNumber % 32));
 
 			}else if(IRQNumber >= 64 && IRQNumber < 96){
 					// Program ICER2 Register
-					*NVIC_ICER2 |= ( 1 << (IRQNumber % 64));
+					*NVIC_ICER2 &= ~( 1 << (IRQNumber % 64));
 			}
 	}
 }

@@ -111,6 +111,17 @@ void SPI_ApplicationEventCallback(SPI_Handle_t *pSPIHandle, uint8_t AppEv);
 #define SPI_SSM_EN					1
 #define SPI_SSM_DI					0
 
+// Possible SPI Application State Macros
+#define SPI_READY                   0
+#define SPI_BUSY_IN_RX				1
+#define SPI_BUSY_IN_TX				2
+
+// possible SPI application events
+// for the irq handling helper functions
+#define SPI_EVENT_TX_CMPLT			1
+#define SPI_EVENT_RX_CMPLT			2
+#define SPI_EVENT_OVR_ERR			3
+#define SPI_EVENT_CRC_ERR			4
 
 
 
