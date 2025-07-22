@@ -364,7 +364,7 @@ uint8_t SPI_SendDataIT(SPI_Handle_t *pSPIHandle, uint8_t *pTxBuffer, uint32_t Le
 
 * @return            - The SPI State
 
-* @Note              - Non Blocking type transmission
+* @Note              - Non Blocking type reception
 ********************************************************/
 uint8_t SPI_ReceiveDataIT(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t Len){
 	uint8_t state = pSPIHandle->RxState;
@@ -433,6 +433,7 @@ void SPI_CloseReception(SPI_Handle_t *pSPIHandle){
 * @Note              - None
 ********************************************************/
 void SPI_ClearOVRFlag(SPI_RegDef_t *pSPIx){
+	// clear the OVR bit by read access to the DR and SR register
 	uint8_t temp;
 	temp = pSPIx->DR;
 	temp = pSPIx->SR;
