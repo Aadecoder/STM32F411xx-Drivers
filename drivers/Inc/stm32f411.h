@@ -382,6 +382,11 @@ typedef struct{
 #define I2C_CCR_DUTY             14
 #define I2C_CCR_FS               15
 
+//In order to deinitialize we need to reset it 
+// and in order to reset we need to first set it to 1 then again set it to 0
+#define I2C1_REG_RESET()       do{(RCC->APB1RSTR |= (1<<21)); (RCC->APB1RSTR &= ~(1<<21));}while(0)
+#define I2C2_REG_RESET()       do{(RCC->APB1RSTR |= (1<<22)); (RCC->APB1RSTR &= ~(1<<22));}while(0)
+#define I2C3_REG_RESET()       do{(RCC->APB1RSTR |= (1<<23)); (RCC->APB1RSTR &= ~(1<<23));}while(0)
 
 
 

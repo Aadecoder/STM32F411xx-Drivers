@@ -1,1 +1,8 @@
-../drivers/Src/stm32f411_i2c.c:15:6:I2C_PeriClockControl	8
+../drivers/Src/stm32f411_i2c.c:21:6:I2C_PeriClockControl	8
+../drivers/Src/stm32f411_i2c.c:49:10:RCC_GetPCLK1Value	5
+../drivers/Src/stm32f411_i2c.c:98:6:I2C_Init	4
+../drivers/Src/stm32f411_i2c.c:163:6:I2C_DeInit	4
+../drivers/Src/stm32f411_i2c.c:181:6:I2C_PeripheralControl	2
+../drivers/Src/stm32f411_i2c.c:189:9:I2C_GetFlagStatus	2
+../drivers/Src/stm32f411_i2c.c:196:13:I2C_GenerateStartCondition	1
+../drivers/Src/stm32f411_i2c.c:200:13:I2C_ExecuteAddressPhaseWrite	1
