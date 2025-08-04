@@ -90,6 +90,9 @@ void I2C_ApplicationEventCallback(I2C_Handle_t *pI2CHandle, uint8_t AppEv);
 #define I2C_FLAG_AF       ( 1 << I2C_SR1_AF )
 #define I2C_FLAG_TIMEOUT  ( 1 << I2C_SR1_TIMEOUT )
 
+// Repeted Start Macros
+#define I2C_DISABLE_SR  RESET
+#define I2C_ENABLE_SR     SET
 
 
 
