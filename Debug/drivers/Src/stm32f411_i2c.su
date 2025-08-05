@@ -12,3 +12,13 @@
 ../drivers/Src/stm32f411_i2c.c:328:13:I2C_GenerateStopCondition	16	static
 ../drivers/Src/stm32f411_i2c.c:347:6:I2C_MasterSendData	24	static
 ../drivers/Src/stm32f411_i2c.c:396:6:I2C_MasterReceiveData	32	static
+../drivers/Src/stm32f411_i2c.c:469:6:I2C_IRQInterruptConfig	16	static
+../drivers/Src/stm32f411_i2c.c:512:6:I2C_IRQPriorityConfig	24	static
+../drivers/Src/stm32f411_i2c.c:537:9:I2C_MasterSendDataIT	32	static
+../drivers/Src/stm32f411_i2c.c:574:9:I2C_MasterReceiveDataIT	32	static
+../drivers/Src/stm32f411_i2c.c:603:6:I2C_CloseReceiveData	16	static
+../drivers/Src/stm32f411_i2c.c:621:6:I2C_CloseSendData	16	static
+../drivers/Src/stm32f411_i2c.c:633:13:I2C_MasterHandleTXEInterrupt	16	static
+../drivers/Src/stm32f411_i2c.c:646:13:I2C_MasterHandleRXNEInterrupt	16	static
+../drivers/Src/stm32f411_i2c.c:686:6:I2C_EV_IRQHandling	24	static
+../drivers/Src/stm32f411_i2c.c:795:6:I2C_ER_IRQHandling	24	static

@@ -94,7 +94,17 @@ void I2C_ApplicationEventCallback(I2C_Handle_t *pI2CHandle, uint8_t AppEv);
 #define I2C_DISABLE_SR  RESET
 #define I2C_ENABLE_SR     SET
 
-
+// I2C Application Events macros
+#define I2C_EV_TX_CMPLT     0
+#define I2C_EV_RX_CMPLT     1
+#define I2C_EV_STOP         2
+#define I2C_ERROR_BERR      3
+#define I2C_ERROR_ARLO      4
+#define I2C_ERROR_AF        5
+#define I2C_ERROR_OVR       6
+#define I2C_ERROR_TIMEOUT   7
+#define I2C_EV_DATA_REQ     8
+#define I2C_EV_DATA_RCV     9
 
 
 

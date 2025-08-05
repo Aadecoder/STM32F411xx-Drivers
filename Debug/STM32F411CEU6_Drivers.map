@@ -328,9 +328,9 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./drivers/Src/stm32f411_gpio.o
  .debug_macro   0x00000000      0x1df ./drivers/Src/stm32f411_gpio.o
  .debug_macro   0x00000000      0x190 ./drivers/Src/stm32f411_gpio.o
- .debug_macro   0x00000000      0x50f ./drivers/Src/stm32f411_gpio.o
+ .debug_macro   0x00000000      0x52b ./drivers/Src/stm32f411_gpio.o
  .debug_macro   0x00000000       0xac ./drivers/Src/stm32f411_gpio.o
- .debug_macro   0x00000000       0x8e ./drivers/Src/stm32f411_gpio.o
+ .debug_macro   0x00000000       0xca ./drivers/Src/stm32f411_gpio.o
  .debug_macro   0x00000000       0xc4 ./drivers/Src/stm32f411_gpio.o
  .group         0x00000000        0xc ./drivers/Src/stm32f411_i2c.o
  .group         0x00000000        0xc ./drivers/Src/stm32f411_i2c.o
@@ -379,12 +379,32 @@ Discarded input sections
                 0x00000000       0xce ./drivers/Src/stm32f411_i2c.o
  .text.I2C_MasterReceiveData
                 0x00000000      0x110 ./drivers/Src/stm32f411_i2c.o
- .debug_info    0x00000000      0x7cc ./drivers/Src/stm32f411_i2c.o
- .debug_abbrev  0x00000000      0x20b ./drivers/Src/stm32f411_i2c.o
+ .text.I2C_IRQInterruptConfig
+                0x00000000      0x10c ./drivers/Src/stm32f411_i2c.o
+ .text.I2C_IRQPriorityConfig
+                0x00000000       0x54 ./drivers/Src/stm32f411_i2c.o
+ .text.I2C_MasterSendDataIT
+                0x00000000       0x82 ./drivers/Src/stm32f411_i2c.o
+ .text.I2C_MasterReceiveDataIT
+                0x00000000       0x94 ./drivers/Src/stm32f411_i2c.o
+ .text.I2C_CloseReceiveData
+                0x00000000       0x5c ./drivers/Src/stm32f411_i2c.o
+ .text.I2C_CloseSendData
+                0x00000000       0x46 ./drivers/Src/stm32f411_i2c.o
+ .text.I2C_MasterHandleTXEInterrupt
+                0x00000000       0x3a ./drivers/Src/stm32f411_i2c.o
+ .text.I2C_MasterHandleRXNEInterrupt
+                0x00000000       0x96 ./drivers/Src/stm32f411_i2c.o
+ .text.I2C_EV_IRQHandling
+                0x00000000      0x1c0 ./drivers/Src/stm32f411_i2c.o
+ .text.I2C_ER_IRQHandling
+                0x00000000      0x10c ./drivers/Src/stm32f411_i2c.o
+ .debug_info    0x00000000      0xa80 ./drivers/Src/stm32f411_i2c.o
+ .debug_abbrev  0x00000000      0x24d ./drivers/Src/stm32f411_i2c.o
  .debug_aranges
-                0x00000000       0x88 ./drivers/Src/stm32f411_i2c.o
+                0x00000000       0xd8 ./drivers/Src/stm32f411_i2c.o
  .debug_rnglists
-                0x00000000       0x67 ./drivers/Src/stm32f411_i2c.o
+                0x00000000       0xa9 ./drivers/Src/stm32f411_i2c.o
  .debug_macro   0x00000000       0xcf ./drivers/Src/stm32f411_i2c.o
  .debug_macro   0x00000000      0xade ./drivers/Src/stm32f411_i2c.o
  .debug_macro   0x00000000       0x22 ./drivers/Src/stm32f411_i2c.o
@@ -394,14 +414,14 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./drivers/Src/stm32f411_i2c.o
  .debug_macro   0x00000000      0x1df ./drivers/Src/stm32f411_i2c.o
  .debug_macro   0x00000000      0x190 ./drivers/Src/stm32f411_i2c.o
- .debug_macro   0x00000000      0x50f ./drivers/Src/stm32f411_i2c.o
+ .debug_macro   0x00000000      0x52b ./drivers/Src/stm32f411_i2c.o
  .debug_macro   0x00000000       0xc4 ./drivers/Src/stm32f411_i2c.o
  .debug_macro   0x00000000       0xac ./drivers/Src/stm32f411_i2c.o
- .debug_macro   0x00000000       0x8e ./drivers/Src/stm32f411_i2c.o
- .debug_line    0x00000000      0x882 ./drivers/Src/stm32f411_i2c.o
- .debug_str     0x00000000     0x637d ./drivers/Src/stm32f411_i2c.o
+ .debug_macro   0x00000000       0xca ./drivers/Src/stm32f411_i2c.o
+ .debug_line    0x00000000      0xd29 ./drivers/Src/stm32f411_i2c.o
+ .debug_str     0x00000000     0x65b8 ./drivers/Src/stm32f411_i2c.o
  .comment       0x00000000       0x44 ./drivers/Src/stm32f411_i2c.o
- .debug_frame   0x00000000      0x230 ./drivers/Src/stm32f411_i2c.o
+ .debug_frame   0x00000000      0x3a8 ./drivers/Src/stm32f411_i2c.o
  .ARM.attributes
                 0x00000000       0x34 ./drivers/Src/stm32f411_i2c.o
  .group         0x00000000        0xc ./drivers/Src/stm32f411_spi.o
@@ -457,10 +477,10 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./drivers/Src/stm32f411_spi.o
  .debug_macro   0x00000000      0x1df ./drivers/Src/stm32f411_spi.o
  .debug_macro   0x00000000      0x190 ./drivers/Src/stm32f411_spi.o
- .debug_macro   0x00000000      0x50f ./drivers/Src/stm32f411_spi.o
+ .debug_macro   0x00000000      0x52b ./drivers/Src/stm32f411_spi.o
  .debug_macro   0x00000000       0xc4 ./drivers/Src/stm32f411_spi.o
  .debug_macro   0x00000000       0xac ./drivers/Src/stm32f411_spi.o
- .debug_macro   0x00000000       0x8e ./drivers/Src/stm32f411_spi.o
+ .debug_macro   0x00000000       0xca ./drivers/Src/stm32f411_spi.o
  .text          0x00000000        0x0 /home/aditya/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-exit.o)
  .data          0x00000000        0x0 /home/aditya/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-exit.o)
  .bss           0x00000000        0x0 /home/aditya/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-exit.o)
@@ -1042,7 +1062,7 @@ LOAD /home/aditya/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.extern
  .debug_rnglists
                 0x00000097       0x90 ./drivers/Src/stm32f411_spi.o
 
-.debug_macro    0x00000000     0x2302
+.debug_macro    0x00000000     0x235a
  .debug_macro   0x00000000      0x19d ./Src/SPI_STM32&ARDUINO_SendData.o
  .debug_macro   0x0000019d      0xade ./Src/SPI_STM32&ARDUINO_SendData.o
  .debug_macro   0x00000c7b       0x22 ./Src/SPI_STM32&ARDUINO_SendData.o
@@ -1052,28 +1072,28 @@ LOAD /home/aditya/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.extern
  .debug_macro   0x00000e7f       0x6a ./Src/SPI_STM32&ARDUINO_SendData.o
  .debug_macro   0x00000ee9      0x1df ./Src/SPI_STM32&ARDUINO_SendData.o
  .debug_macro   0x000010c8      0x190 ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x00001258      0x50f ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x00001767       0xc4 ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x0000182b       0xac ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x000018d7       0x8e ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x00001965       0x61 ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x000019c6       0x2a ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x000019f0       0x43 ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x00001a33       0x34 ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x00001a67      0x370 ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x00001dd7       0x16 ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x00001ded       0x4a ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x00001e37       0x34 ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x00001e6b       0x10 ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x00001e7b       0x58 ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x00001ed3       0x8e ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x00001f61       0x1c ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x00001f7d      0x185 ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x00002102       0x10 ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x00002112       0x3c ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x0000214e       0x20 ./Src/SPI_STM32&ARDUINO_SendData.o
- .debug_macro   0x0000216e       0xc5 ./drivers/Src/stm32f411_gpio.o
- .debug_macro   0x00002233       0xcf ./drivers/Src/stm32f411_spi.o
+ .debug_macro   0x00001258      0x52b ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x00001783       0xc4 ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x00001847       0xac ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x000018f3       0xca ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x000019bd       0x61 ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x00001a1e       0x2a ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x00001a48       0x43 ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x00001a8b       0x34 ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x00001abf      0x370 ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x00001e2f       0x16 ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x00001e45       0x4a ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x00001e8f       0x34 ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x00001ec3       0x10 ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x00001ed3       0x58 ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x00001f2b       0x8e ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x00001fb9       0x1c ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x00001fd5      0x185 ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x0000215a       0x10 ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x0000216a       0x3c ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x000021a6       0x20 ./Src/SPI_STM32&ARDUINO_SendData.o
+ .debug_macro   0x000021c6       0xc5 ./drivers/Src/stm32f411_gpio.o
+ .debug_macro   0x0000228b       0xcf ./drivers/Src/stm32f411_spi.o
 
 .debug_line     0x00000000     0x1a9c
  .debug_line    0x00000000      0x69d ./Src/SPI_STM32&ARDUINO_SendData.o
@@ -1081,12 +1101,12 @@ LOAD /home/aditya/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.extern
  .debug_line    0x00000718      0x9a4 ./drivers/Src/stm32f411_gpio.o
  .debug_line    0x000010bc      0x9e0 ./drivers/Src/stm32f411_spi.o
 
-.debug_str      0x00000000     0x96e1
- .debug_str     0x00000000     0x96e1 ./Src/SPI_STM32&ARDUINO_SendData.o
-                               0x945b (size before relaxing)
- .debug_str     0x000096e1       0x99 ./Startup/startup_stm32f411ceux.o
- .debug_str     0x000096e1     0x637d ./drivers/Src/stm32f411_gpio.o
- .debug_str     0x000096e1     0x63f2 ./drivers/Src/stm32f411_spi.o
+.debug_str      0x00000000     0x97cc
+ .debug_str     0x00000000     0x97cc ./Src/SPI_STM32&ARDUINO_SendData.o
+                               0x9546 (size before relaxing)
+ .debug_str     0x000097cc       0x99 ./Startup/startup_stm32f411ceux.o
+ .debug_str     0x000097cc     0x6468 ./drivers/Src/stm32f411_gpio.o
+ .debug_str     0x000097cc     0x64dd ./drivers/Src/stm32f411_spi.o
 
 .comment        0x00000000       0x43
  .comment       0x00000000       0x43 ./Src/SPI_STM32&ARDUINO_SendData.o

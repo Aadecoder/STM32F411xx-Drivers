@@ -270,6 +270,8 @@ typedef struct{
 #define IRQ_NO_EXTI4             10
 #define IRQ_NO_EXTI9_5           23
 #define IRQ_NO_EXTI15_10         40
+#define IRQ_NO_I2C1_EV           31
+#define IRQ_NO_I2C1_ER           32
 
 // Macros for NVIC IRQ Priority LEVELS
 #define NVIC_IRQ_PRI0        0
@@ -376,6 +378,8 @@ typedef struct{
 #define I2C_SR1_TIMEOUT          14
 
 #define I2C_SR2_BUSY             1
+#define I2C_SR2_MSL              0
+#define I2C_SR2_TRA              2
 
 // Bit Position Definatons for I2C_CCR
 #define I2C_CCR_CCR              0
