@@ -77,6 +77,11 @@ void I2C_CloseReceiveData(I2C_Handle_t *pI2CHandle);
 // Application Callback
 void I2C_ApplicationEventCallback(I2C_Handle_t *pI2CHandle, uint8_t AppEv);
 
+// Slave Programming
+void I2C_SlaveSendData(I2C_RegDef_t *pI2Cx, uint8_t data);
+uint8_t I2C_SlaveReceiveData(I2C_RegDef_t *pI2Cx);
+void I2C_SlaveEnableDisableCallbackEvents(I2C_RegDef_t *pI2Cx, uint8_t EnorDi);
+
 // I2C Related Status Flag Definations
 #define I2C_FLAG_TXE      ( 1 << I2C_SR1_TXE )
 #define I2C_FLAG_RXNE     ( 1 << I2C_SR1_RXNE )

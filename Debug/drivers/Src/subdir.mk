@@ -7,17 +7,23 @@
 C_SRCS += \
 ../drivers/Src/stm32f411_gpio.c \
 ../drivers/Src/stm32f411_i2c.c \
-../drivers/Src/stm32f411_spi.c 
+../drivers/Src/stm32f411_rcc.c \
+../drivers/Src/stm32f411_spi.c \
+../drivers/Src/stm32f411_usart.c 
 
 OBJS += \
 ./drivers/Src/stm32f411_gpio.o \
 ./drivers/Src/stm32f411_i2c.o \
-./drivers/Src/stm32f411_spi.o 
+./drivers/Src/stm32f411_rcc.o \
+./drivers/Src/stm32f411_spi.o \
+./drivers/Src/stm32f411_usart.o 
 
 C_DEPS += \
 ./drivers/Src/stm32f411_gpio.d \
 ./drivers/Src/stm32f411_i2c.d \
-./drivers/Src/stm32f411_spi.d 
+./drivers/Src/stm32f411_rcc.d \
+./drivers/Src/stm32f411_spi.d \
+./drivers/Src/stm32f411_usart.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -27,7 +33,7 @@ drivers/Src/%.o drivers/Src/%.su drivers/Src/%.cyclo: ../drivers/Src/%.c drivers
 clean: clean-drivers-2f-Src
 
 clean-drivers-2f-Src:
-	-$(RM) ./drivers/Src/stm32f411_gpio.cyclo ./drivers/Src/stm32f411_gpio.d ./drivers/Src/stm32f411_gpio.o ./drivers/Src/stm32f411_gpio.su ./drivers/Src/stm32f411_i2c.cyclo ./drivers/Src/stm32f411_i2c.d ./drivers/Src/stm32f411_i2c.o ./drivers/Src/stm32f411_i2c.su ./drivers/Src/stm32f411_spi.cyclo ./drivers/Src/stm32f411_spi.d ./drivers/Src/stm32f411_spi.o ./drivers/Src/stm32f411_spi.su
+	-$(RM) ./drivers/Src/stm32f411_gpio.cyclo ./drivers/Src/stm32f411_gpio.d ./drivers/Src/stm32f411_gpio.o ./drivers/Src/stm32f411_gpio.su ./drivers/Src/stm32f411_i2c.cyclo ./drivers/Src/stm32f411_i2c.d ./drivers/Src/stm32f411_i2c.o ./drivers/Src/stm32f411_i2c.su ./drivers/Src/stm32f411_rcc.cyclo ./drivers/Src/stm32f411_rcc.d ./drivers/Src/stm32f411_rcc.o ./drivers/Src/stm32f411_rcc.su ./drivers/Src/stm32f411_spi.cyclo ./drivers/Src/stm32f411_spi.d ./drivers/Src/stm32f411_spi.o ./drivers/Src/stm32f411_spi.su ./drivers/Src/stm32f411_usart.cyclo ./drivers/Src/stm32f411_usart.d ./drivers/Src/stm32f411_usart.o ./drivers/Src/stm32f411_usart.su
 
 .PHONY: clean-drivers-2f-Src
 

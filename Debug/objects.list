@@ -4,4 +4,6 @@
 "./Startup/startup_stm32f411ceux.o"
 "./drivers/Src/stm32f411_gpio.o"
 "./drivers/Src/stm32f411_i2c.o"
+"./drivers/Src/stm32f411_rcc.o"
 "./drivers/Src/stm32f411_spi.o"
+"./drivers/Src/stm32f411_usart.o"

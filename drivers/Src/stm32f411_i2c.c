@@ -35,56 +35,6 @@ void I2C_PeriClockControl(I2C_RegDef_t *pI2Cx, uint8_t EnorDi){
 }
 
 
-/********************************************************
-* @fn                - RCC_GetPCLK1Value(void)
-
-* @brief             - This fucntion calculates the PCLK1 value for the APB bus interface
-
-* @param[in]         - none
-
-* @return            -  PCLK1 value for the APB bus interface
-
-* @Note              - none
-********************************************************/
-uint16_t AHB_PreScalar[8] = {2, 4, 8, 16, 64, 128, 256, 512};
-uint8_t APB1_PreScalar[4] = {2, 4, 8, 16};
-uint32_t RCC_GetPCLK1Value(void){
-   uint32_t pclk1, SystemClk;
-   uint8_t clksrc, temp, ahbp, apb1p;
-
-   clksrc = ((RCC->CFGR >> 2) & (0x3));
-
-   if(clksrc == 0){
-       // HSI Clock Source
-       SystemClk = 16000000; // System Clock value is 16MHz
-   }else if(clksrc == 1){
-       // HSE Clock Source
-       SystemClk = 8000000; // System Clock value is 8MHz
-   }
-
-   // For AHB prescalar
-   temp = ((RCC->CFGR >> 4) & 0xF);
-   if(temp < 8){
-	ahbp = 1;
-   }else{
-	ahbp = AHB_PreScalar[temp - 8];
-   }
-
-   // for APB Prescalar
-   temp = ((RCC->CFGR >> 10) & 0X7);
-   if (temp < 4){
-	apb1p = 1;
-   }else{
-	apb1p = APB1_PreScalar[temp - 4];
-   }
-   
-   pclk1 = (SystemClk / ahbp) / apb1p;
-
-   return pclk1;
-
-}
-
-
 
 /********************************************************
 * @fn                - I2C_Init
@@ -850,4 +800,57 @@ void I2C_ER_IRQHandling(I2C_Handle_t *pI2CHandle){
 	}
 }
 
+/********************************************************
+* @fn                - I2C_SlaveSendData
 
+* @brief             - This function sends data if device is a slave
+
+* @param[in]         - base address of the I2C Port
+* @param[in]         - data
+
+* @return            - None
+
+* @Note              - None
+********************************************************/
+void I2C_SlaveSendData(I2C_RegDef_t *pI2Cx, uint8_t data){
+	pI2Cx->DR = data;
+}
+
+/********************************************************
+* @fn                - I2C_SlaveReceiveData
+
+* @brief             - This function receives data if device is a slave
+
+* @param[in]         - base address of the I2C Port
+
+* @return            - uint8_t
+
+* @Note              - None
+********************************************************/
+uint8_t I2C_SlaveReceiveData(I2C_RegDef_t *pI2Cx){
+	return (uint8_t) pI2Cx->DR;
+}
+
+/********************************************************
+* @fn                - I2C_SlaveEnableDisableCallbackEvents
+
+* @brief             - Enables the interrupt control bits in the CR2 register
+
+* @param[in]         - IRQ port base address
+* @param[in]         - Enable or Disable
+
+@return              - None
+
+@Note                - None
+*********************************************/
+void I2C_SlaveEnableDisableCallbackEvents(I2C_RegDef_t *pI2Cx, uint8_t EnorDi){
+	if(EnorDi == ENABLE){
+		pI2Cx->CR2 |= ( 1 << I2C_CR2_ITEVTEN );
+		pI2Cx->CR2 |= ( 1 << I2C_CR2_ITBUFEN );
+		pI2Cx->CR2 |= ( 1 << I2C_CR2_ITERREN );
+	}else{
+		pI2Cx->CR2 &= ~( 1 << I2C_CR2_ITEVTEN );
+		pI2Cx->CR2 &= ~( 1 << I2C_CR2_ITBUFEN );
+		pI2Cx->CR2 &= ~( 1 << I2C_CR2_ITERREN );
+	}
+}

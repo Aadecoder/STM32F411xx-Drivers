@@ -1,0 +1,4 @@
+../drivers/Src/stm32f411_usart.c:15:6:USART_PeriClockControl	8
+../drivers/Src/stm32f411_usart.c:42:6:USART_SetBaudRate	5
+../drivers/Src/stm32f411_usart.c:105:6:USART_Init	9
+../drivers/Src/stm32f411_usart.c:179:6:USART_DeInit	4

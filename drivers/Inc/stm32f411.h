@@ -270,8 +270,15 @@ typedef struct{
 #define IRQ_NO_EXTI4             10
 #define IRQ_NO_EXTI9_5           23
 #define IRQ_NO_EXTI15_10         40
-#define IRQ_NO_I2C1_EV           31
-#define IRQ_NO_I2C1_ER           32
+#define IRQ_NO_I2C1_EV           38
+#define IRQ_NO_I2C1_ER           39
+#define IRQ_NO_I2C2_EV           40
+#define IRQ_NO_I2C2_ER           41
+#define IRQ_NO_I2C3_EV           79
+#define IRQ_NO_I2C3_ER           80
+#define IRQ_NO_USART1	    	 44
+#define IRQ_NO_USART2	    	 45
+#define IRQ_NO_USART6	    	 78
 
 // Macros for NVIC IRQ Priority LEVELS
 #define NVIC_IRQ_PRI0        0
@@ -392,7 +399,83 @@ typedef struct{
 #define I2C2_REG_RESET()       do{(RCC->APB1RSTR |= (1<<22)); (RCC->APB1RSTR &= ~(1<<22));}while(0)
 #define I2C3_REG_RESET()       do{(RCC->APB1RSTR |= (1<<23)); (RCC->APB1RSTR &= ~(1<<23));}while(0)
 
+// USART Peripheral Register Structure
+typedef struct{
+	__vo uint32_t SR;            // Address Offset: 0x00
+	__vo uint32_t DR;            // Address Offset: 0x04
+	__vo uint32_t BRR;           // Address Offset: 0x08
+	__vo uint32_t CR1;           // Address Offset: 0x0C
+	__vo uint32_t CR2;           // Address Offset: 0x10
+	__vo uint32_t CR3 ;           // Address Offset: 0x14
+	__vo uint32_t GTPR;         // Address Offset: 0x18
+}USART_RegDef_t;
 
+// Peripheral Definition Macros
+#define USART1             ((USART_RegDef_t*)USART1_BASE)
+#define USART2             ((USART_RegDef_t*)USART2_BASE)
+#define USART6             ((USART_RegDef_t*)USART6_BASE)
+
+// Bit Position Definitions USART_SR
+#define USART_SR_PE         0
+#define USART_SR_FE         1
+#define USART_SR_NF         2
+#define USART_SR_ORE        3
+#define USART_SR_IDLE       4
+#define USART_SR_RXNE       5
+#define USART_SR_TC         6
+#define USART_SR_TXE        7
+#define USART_SR_LBD        8
+#define USART_SR_CTS        9
+
+// Bit Position Definitions USART_CR1
+#define USART_CR1_SBK          0
+#define USART_CR1_RWU          1
+#define USART_CR1_RE           2
+#define USART_CR1_TE           3
+#define USART_CR1_IDLEIE       4
+#define USART_CR1_RXNEIE       5
+#define USART_CR1_TCIE         6
+#define USART_CR1_TXEIE        7
+#define USART_CR1_PEIE         8
+#define USART_CR1_PS           9
+#define USART_CR1_PCE          10
+#define USART_CR1_WAKE         11
+#define USART_CR1_M            12
+#define USART_CR1_UE           13
+#define USART_CR1_OVER8        15
+
+// Bit Position Definitions USART_CR2
+#define USART_CR2_ADD           0
+#define USART_CR2_LBDL          5
+#define USART_CR2_LBDIE         6
+#define USART_CR2_LBCL          8
+#define USART_CR2_CPHA          9
+#define USART_CR2_CPOL          10
+#define USART_CR2_CLKEN         11
+#define USART_CR2_STOP          12
+#define USART_CR2_LINEN         14
+
+// Bit Position Definitions USART_CR3
+#define USART_CR3_EIE            0
+#define USART_CR3_IREN           1
+#define USART_CR3_IRLP           2
+#define USART_CR3_HDSEL          3
+#define USART_CR3_NACK           4
+#define USART_CR3_SCEN           5
+#define USART_CR3_DMAR           6
+#define USART_CR3_DMAT           7
+#define USART_CR3_RTSE           8
+#define USART_CR3_CTSE           9
+#define USART_CR3_CTSIE          10
+#define USART_CR3_ONEBIT         11
+
+// MCU Specific Header file
+
+//In order to deinitialize we need to reset it
+// and in order to reset we need to first set it to 1 then again set it to 0
+#define USART1_REG_RESET()       do{(RCC->APB2RSTR |= (1<<4)); (RCC->APB2RSTR &= ~(1<<4));}while(0)
+#define USART2_REG_RESET()       do{(RCC->APB1RSTR |= (1<<17)); (RCC->APB1RSTR &= ~(1<<17));}while(0)
+#define USART6_REG_RESET()       do{(RCC->APB2RSTR |= (1<<18)); (RCC->APB1RSTR &= ~(1<<5));}while(0)
 
 
 
@@ -401,5 +484,7 @@ typedef struct{
 #include "stm32f411_gpio.h"
 #include "stm32f411_spi.h"
 #include "stm32f411_i2c.h"
+#include "stm32f411_usart.h"
+#include "stm32f411_rcc.h"
 
 #endif /* STM32F411_H_ */
