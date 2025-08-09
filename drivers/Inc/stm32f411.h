@@ -434,7 +434,7 @@ typedef struct{
 #define USART_CR1_TE           3
 #define USART_CR1_IDLEIE       4
 #define USART_CR1_RXNEIE       5
-#define USART_CR1_TCIE         6
+#define USART_CR1_TCEIE        6
 #define USART_CR1_TXEIE        7
 #define USART_CR1_PEIE         8
 #define USART_CR1_PS           9

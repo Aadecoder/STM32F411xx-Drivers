@@ -85,7 +85,10 @@ typedef struct{
 #define USART_HW_FLOW_CTRL_RTS    	2
 #define USART_HW_FLOW_CTRL_CTS_RTS	3
 
-
+// USART Application States
+#define USART_READY           0
+#define USART_BUSY_IN_TX      1
+#define USART_BUSY_IN_RX      2
 
 /******************************************************************************************
  *								APIs supported by this driver
@@ -105,8 +108,8 @@ void USART_DeInit(USART_RegDef_t *pUSARTx);
 /*
  * Data Send and Receive
  */
-void USART_SendData(USART_RegDef_t *pUSARTx,uint8_t *pTxBuffer, uint32_t Len);
-void USART_ReceiveData(USART_RegDef_t *pUSARTx, uint8_t *pRxBuffer, uint32_t Len);
+void USART_SendData(USART_Handle_t *pUSARTHandle,uint8_t *pTxBuffer, uint32_t Len);
+void USART_ReceiveData(USART_Handle_t *pUSARTHandle, uint8_t *pRxBuffer, uint32_t Len);
 uint8_t USART_SendDataIT(USART_Handle_t *pUSARTHandle,uint8_t *pTxBuffer, uint32_t Len);
 uint8_t USART_ReceiveDataIT(USART_Handle_t *pUSARTHandle, uint8_t *pRxBuffer, uint32_t Len);
 
@@ -129,6 +132,16 @@ void USART_SetBaudRate(USART_RegDef_t *pUSARTx, uint32_t BaudRate);
  * Application callback
  */
 void USART_ApplicationEventCallback(USART_Handle_t *pUSARTHandle,uint8_t AppEv);
+
+// USART Application Event Macros
+#define USART_EVENT_TX_CMPLT          0
+#define USART_EVENT_RX_CMPLT          1
+#define USART_EVENT_CTS               2
+#define USART_EVENT_IDLE              3
+#define USART_EVENT_ORE               4
+#define USART_ERR_FE                  5
+#define USART_ERR_NF                  6
+#define USART_ERR_ORE                 7
 
 
 
